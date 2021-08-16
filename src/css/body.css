@@ -1,0 +1,9 @@
+p {
+    text-align: justify;
+    padding-left: 20vw;
+    padding-right: 20vw;
+}
+
+p b{
+    font-size: 50px;
+}
