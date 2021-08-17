@@ -1,9 +1,36 @@
 p {
-    text-align: justify;
-    padding-left: 20vw;
-    padding-right: 20vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 0;
+    font-size:30px ;
+    border: 1px solid black;
 }
 
 p b{
-    font-size: 50px;
+    font-size: 40px;
+}
+
+textarea {
+    outline: none;
+    border: none;
+    font-size: 30px;
+    border: 1px solid black;
+    overflow: hidden;
+    justify-self: center;
+    resize: none;
+    width: 90vw;
+    align-self: center;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border: 1px solid black;
+    height: 90vh;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }
