@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../css/body.css";
 import array from "../Paragraphs/paragraphs";
+import Timer from './Timer'
 
 export default function Body() {
   const [typed, addTyped] = useState("");
@@ -9,26 +10,22 @@ export default function Body() {
     currentWord: "",
     restParagraph: "",
   });
+
+  const [timer, setTimer] = useState();
+
   const [finished, setFinished] = useState(false);
   const [start, setStart] = useState(false);
-  const [timer, setTimer] = useState(0);
+
   const inputRef = useRef("");
   const paragraphRef = useRef();
   const result = useRef();
-  const paragraph = array.array[0];
 
-  useEffect(() => {
-    if (start) {
-      const interval = setInterval(() => {
-        if (start) {
-          setTimer((timer) => timer + 1);
-        } else {
-          clearInterval(interval);
-          setTimer(0)
-        }
-      }, 1000);
-    }
-  }, [start]);
+  const [paragraph,setParagraph] = useState(array[0])
+
+  function countWords(str) {
+    return str.trim().split(/\s+/).length;
+  }
+  
 
   useEffect(() => {
     //TO CHECK IF THE TYPING IS CORRECT
@@ -38,18 +35,20 @@ export default function Body() {
       paragraphRef.current.style.color = "red";
     }
 
-    // FINISHED
+    // ON FINISHED
     if (typed.length == paragraph.length) {
       console.log("finished");
-      setStart(false);
       setFinished(true);
-      result.current.innerHTML = "You finished typing in " + timer.toString();
+      setStart(false);
+      var a = (Date.now()/1000-timer);
+      setTimer(a);
+      result.current.innerHTML = "You finished typing in " + (Math.floor(a)/60).toString() + "Minutes \nWPM :" + countWords(paragraph)/(Math.floor(a)/60);
+      inputRef.current.value = typed;
       // DISPLAY RESULTS AND EXIT
     }
   }, [typed]);
 
-  //TO BOLD BODY WHILE TYPING
-
+  //TO BOLD BODY WHILE TYPING AND OTHER SETTINGS
   useEffect(() => {
     let rest = paragraph.substring(typed.length, paragraph.length);
     let current = rest.substring(0, rest.indexOf(" "));
@@ -61,6 +60,7 @@ export default function Body() {
     });
   }, [typed]);
 
+  //TO BE CALLED WHEN FINISHED TYPING.
   function displayResults() {
     if (paragraphRef.current.style.color == "red") {
       console.log("errors");
@@ -70,15 +70,24 @@ export default function Body() {
   }
 
   function addTypedText(e) {
-    if (!finished) {
+    if (!start && typed.length <= 0) {
+      setStart(true);
+      setTimer(Date.now()/1000);
+    }
+    if (typed.length < paragraph.length - 1) {
       addTyped(() => {
         return typed + e;
       });
     } else {
+      addTyped(() => {
+        return typed + e;
+      });
+      inputRef.current.disabled = "disabled";
       displayResults();
     }
   }
 
+  // ON BACKSPACE CLICKED
   function removeOneLetter() {
     let newString = typed.substring(0, typed.length - 1);
     addTyped(newString);
@@ -86,7 +95,7 @@ export default function Body() {
 
   return (
     <div className="body">
-      <h2>Timer - {timer}</h2>
+      {start ? <Timer></Timer> : <div> {finished ? "You have completed Typing the Paragraph" : "Timer will start once you start typing"}</div>}
       <h4>Paragraph</h4>
       <p ref={paragraphRef}>
         {states.lastPart}
@@ -97,9 +106,6 @@ export default function Body() {
       <textarea
         ref={inputRef}
         onKeyDown={(e) => {
-          if (!start) {
-            setStart(true);
-          }
           if (e.key == " ") {
             addTypedText(" ");
           } else if (e.key == "enter") {
