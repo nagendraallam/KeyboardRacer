@@ -6,6 +6,6 @@ A simple react app to help improve your typing speed.
 
 # Initial Build
 
-Link : https://peridot-accurate-vacation.glitch.me
+Link : https://sunrise-simple-pillow.glitch.me/
 
 [Wait for 2-5mins to build the project if the project is in sleep]
