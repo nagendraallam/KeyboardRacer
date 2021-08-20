@@ -12,5 +12,5 @@ Link : https://sunrise-simple-pillow.glitch.me/
 
 # Screenshot 
 
-![Screenshot](https://github.com/nagi1998/keyboardracer/Screenshots/ss1.png)
+![Screenshot](https://github.com/nagi1998/KeyboardRacer/blob/master/Screenshots/ss1.png)
 
