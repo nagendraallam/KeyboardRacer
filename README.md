@@ -9,3 +9,8 @@ A simple react app to help improve your typing speed.
 Link : https://sunrise-simple-pillow.glitch.me/
 
 [Wait for 2-5mins to build the project if the project is in sleep]
+
+# Screenshot 
+
+![Screenshot](https://github.com/nagi1998/keyboardracer/Screenshots/ss1.png)
+

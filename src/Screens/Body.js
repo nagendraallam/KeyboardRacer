@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../css/body.css";
-import array from "../Paragraphs/paragraphs";
-import Timer from './Timer'
+import HelloWorld from "../Paragraphs/paragraphs";
+import Timer from "./Timer";
 
 export default function Body() {
   const [typed, addTyped] = useState("");
@@ -11,6 +11,7 @@ export default function Body() {
     restParagraph: "",
   });
 
+  const [report, setReport] = useState({});
   const [timer, setTimer] = useState();
 
   const [finished, setFinished] = useState(false);
@@ -20,12 +21,11 @@ export default function Body() {
   const paragraphRef = useRef();
   const result = useRef();
 
-  const [paragraph,setParagraph] = useState(array[0])
+  const [paragraph, setParagraph] = useState(HelloWorld);
 
   function countWords(str) {
     return str.trim().split(/\s+/).length;
   }
-  
 
   useEffect(() => {
     //TO CHECK IF THE TYPING IS CORRECT
@@ -40,9 +40,18 @@ export default function Body() {
       console.log("finished");
       setFinished(true);
       setStart(false);
-      var a = (Date.now()/1000-timer);
+      var a = Date.now() / 1000 - timer;
       setTimer(a);
-      result.current.innerHTML = "You finished typing in " + (Math.floor(a)/60).toString() + "Minutes \nWPM :" + countWords(paragraph)/(Math.floor(a)/60);
+      setReport({
+        seconds: Math.floor(a),
+        minutes: Math.floor(a / 60),
+        WPM: Math.floor(countWords(paragraph) / (a / 60)),
+      });
+      result.current.innerHTML =
+        "You finished typing in " +
+        Math.floor(a / 60).toString() +
+        " Minutes \n WPM : " +
+        Math.floor(countWords(paragraph) / (a / 60)).toString();
       inputRef.current.value = typed;
       // DISPLAY RESULTS AND EXIT
     }
@@ -72,7 +81,7 @@ export default function Body() {
   function addTypedText(e) {
     if (!start && typed.length <= 0) {
       setStart(true);
-      setTimer(Date.now()/1000);
+      setTimer(Date.now() / 1000);
     }
     if (typed.length < paragraph.length - 1) {
       addTyped(() => {
@@ -95,7 +104,18 @@ export default function Body() {
 
   return (
     <div className="body">
-      {start ? <Timer></Timer> : <div> {finished ? "You have completed Typing the Paragraph" : "Timer will start once you start typing"}</div>}
+      {start ? (
+        <Timer></Timer>
+      ) : (
+        <div>
+          {" "}
+          {finished
+            ? "You have completed Typing the Paragraph in " +
+              report.seconds.toString() +
+              " Seconds"
+            : "Timer will start once you start typing"}
+        </div>
+      )}
       <h4>Paragraph</h4>
       <p ref={paragraphRef}>
         {states.lastPart}

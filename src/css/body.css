@@ -1,23 +1,20 @@
 p {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    width: 90vw;
+    align-self: center;
     margin-top: 0;
-    font-size:30px ;
     border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    text-align: justify;
+    padding: 15px;
 }
 
 p b{
-    font-size: 40px;
+
 }
 
 textarea {
-    outline: none;
-    border: none;
-    font-size: 30px;
-    border: 1px solid black;
-    overflow: hidden;
-    justify-self: center;
-    resize: none;
+    height: 50%;
     width: 90vw;
     align-self: center;
 }
