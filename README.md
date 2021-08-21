@@ -2,7 +2,6 @@
 
 A simple react app to help improve your typing speed.
 
-[UNDER CONSTRUCTION]
 
 # Initial Build
 
