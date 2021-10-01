@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../css/body.css";
 import HelloWorld from "../Paragraphs/paragraphs";
+import Results from "./Results";
 import Timer from "./Timer";
 
 export default function Body() {
@@ -46,6 +47,10 @@ export default function Body() {
         seconds: Math.floor(a),
         minutes: Math.floor(a / 60),
         WPM: Math.floor(countWords(paragraph) / (a / 60)),
+        student: Math.floor((countWords(paragraph)/35)*60),
+        programmer : Math.floor((countWords(paragraph)/60)*60),
+        typist : Math.floor((countWords(paragraph)/90)*60),
+        fastest: Math.floor((countWords(paragraph)/219)*60)
       });
       result.current.innerHTML =
         "You finished typing in " +
@@ -110,9 +115,7 @@ export default function Body() {
         <div>
           {" "}
           {finished
-            ? "You have completed Typing the Paragraph in " +
-              report.seconds.toString() +
-              " Seconds"
+            ? <Results results={report} />
             : "Timer will start once you start typing"}
         </div>
       )}
