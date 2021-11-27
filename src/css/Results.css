@@ -1,7 +1,7 @@
 .resultsDiv {
   width: 40vw;
-  height: 50vh;
   position: absolute;
+  padding-bottom: 20px;
   top: 50%;
   left: 50%;
   background-color: aquamarine;

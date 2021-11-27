@@ -1,0 +1,32 @@
+p {
+  width: 90vw;
+  align-self: center;
+  margin-top: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2vw;
+  text-align: justify;
+  padding: 15px;
+}
+
+textarea {
+  height: 50%;
+  width: 90vw;
+  align-self: center;
+}
+
+.body {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 90vh;
+  text-align: center;
+}
+select {
+  width: 20vw;
+  margin-top: 10px;
+  align-self: center;
+}
+h3 {
+  text-align: justify;
+}

@@ -15,11 +15,24 @@ export default function Results(props) {
   return (
     <div className="resultsDiv">
       <h1> Your Typing speed is : {props.results.WPM} wpm</h1>
+      <h6> Errors made : {props.errors}</h6>
       <h2> You took {props.results.seconds} seconds! </h2>
-      <h3>An Average student would have taken {props.results.student} seconds</h3>
-      <h3>An Average Programmer would have taken {props.results.programmer} seconds</h3>
-      <h3>An Average Professional Typist would have taken {props.results.typist} seconds</h3>
-      <h3>The fastest typer would have taken {props.results.fastest} seconds</h3>
+      <h3>
+        An Average student would have taken {props.results.student} seconds
+      </h3>
+      <h3>
+        An Average Programmer would have taken {props.results.programmer}{" "}
+        seconds
+      </h3>
+      <h3>
+        An Average Professional Typist would have taken {props.results.typist}{" "}
+        seconds
+      </h3>
+      <h3>
+        The fastest typer would have taken {props.results.fastest} seconds
+      </h3>
+
+      <button onClick={props.reset}>Try Again</button>
     </div>
   );
 }
