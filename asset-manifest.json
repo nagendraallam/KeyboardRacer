@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/KeyboardRacer/static/css/main.c1c33061.chunk.css",
-    "main.js": "/KeyboardRacer/static/js/main.ec13d984.chunk.js",
-    "main.js.map": "/KeyboardRacer/static/js/main.ec13d984.chunk.js.map",
+    "main.css": "/KeyboardRacer/static/css/main.26eacdd9.chunk.css",
+    "main.js": "/KeyboardRacer/static/js/main.916e378c.chunk.js",
+    "main.js.map": "/KeyboardRacer/static/js/main.916e378c.chunk.js.map",
     "runtime-main.js": "/KeyboardRacer/static/js/runtime-main.50fef2a9.js",
     "runtime-main.js.map": "/KeyboardRacer/static/js/runtime-main.50fef2a9.js.map",
-    "static/js/2.a5df6bdb.chunk.js": "/KeyboardRacer/static/js/2.a5df6bdb.chunk.js",
-    "static/js/2.a5df6bdb.chunk.js.map": "/KeyboardRacer/static/js/2.a5df6bdb.chunk.js.map",
+    "static/js/2.801d0f4a.chunk.js": "/KeyboardRacer/static/js/2.801d0f4a.chunk.js",
+    "static/js/2.801d0f4a.chunk.js.map": "/KeyboardRacer/static/js/2.801d0f4a.chunk.js.map",
     "index.html": "/KeyboardRacer/index.html",
-    "static/css/main.c1c33061.chunk.css.map": "/KeyboardRacer/static/css/main.c1c33061.chunk.css.map",
-    "static/js/2.a5df6bdb.chunk.js.LICENSE.txt": "/KeyboardRacer/static/js/2.a5df6bdb.chunk.js.LICENSE.txt"
+    "static/css/main.26eacdd9.chunk.css.map": "/KeyboardRacer/static/css/main.26eacdd9.chunk.css.map",
+    "static/js/2.801d0f4a.chunk.js.LICENSE.txt": "/KeyboardRacer/static/js/2.801d0f4a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.50fef2a9.js",
-    "static/js/2.a5df6bdb.chunk.js",
-    "static/css/main.c1c33061.chunk.css",
-    "static/js/main.ec13d984.chunk.js"
+    "static/js/2.801d0f4a.chunk.js",
+    "static/css/main.26eacdd9.chunk.css",
+    "static/js/main.916e378c.chunk.js"
   ]
 }
